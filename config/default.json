@@ -4,5 +4,6 @@
         "port": 27017,
         "dbName":"keyence"
     },
-    "secretKey":"JACH102030"
+    "secretKey":"JACH102030",
+    "uploadPath": "uploads/"
 }

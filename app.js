@@ -5,7 +5,6 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const connectDB = require('./dataBase/database');
-
 //Start app
 const app = express();
 //DB conection

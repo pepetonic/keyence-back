@@ -123,6 +123,14 @@ exports.uploadFileCatalog = async (req, res, next) => {
         // Delete file
         fs.unlinkSync(filePath);
 
+        const validate = await dataService.validateFormat(jsonData);
+        
+        if(!validate){
+            return res.status(400).send({
+                message:'Invalid excel file'
+            });
+        }
+
         //Converte data to valid data
         dataService.processData(jsonData)
         .then( async (processData )=>{

@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const connectDB = require('./dataBase/database');
+const cors = require('cors');
 //Start app
 const app = express();
 //DB conection
@@ -21,6 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Api routes
+app.use(cors());
 app.use('/v1/', indexRouter);
 
 // catch 404 and forward to error handler

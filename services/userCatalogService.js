@@ -16,6 +16,23 @@ function processData(jsonData) {
       }
     });
   }
+
+  function validateFormat(jsonData){
+    return new Promise((resolve, reject) => {
+      try {
+        let valid = true;
+        jsonData.forEach( ele => {
+          if(!("User ID" in ele &&"User Name" in ele &&"Date" in ele &&"Punch In" in ele &&"Punch In")){
+            valid = false;
+          }
+        });
+        resolve(valid);
+      } catch (error) {
+        reject(false);
+      }
+    });
+
+  }
   
-  module.exports = { processData };
+  module.exports = { processData, validateFormat };
   
